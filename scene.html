@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<!-- JEREMIAH JOHNSON | WATCHINGTHEHEAVENS , 2012 -->
+<!-- HTTP://WWW.DATACORRUPTION.ORG // HTTP://WWW.NULLSLEEP.COM -->
+<head>
+<title>Watching the Heavens by Jeremiah Johnson</title>
+<link rel="image_src" href="img/background.gif" />
+<link rel="STYLESHEET" href="inc/style.css" type="text/css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="inc/popup.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+	    <div id="container">
+			<div id="sky"><img src="img/background.gif" /></div>
+			<div id="stars"><img src="img/stars.gif" /></div>
+			<div id="glowBack"><img src="img/glowBack.png" /></div>
+			<div id="horizon"><img src="img/horizon.png" /></div>
+			<div id="glowFront"><img src="img/glowFront.png" /></div>
+			<div id="mask"><img src="img/mask.png" /></div>
+			<div id="m0"></div>
+			<div id="m1"></div>
+			<div id="m2"></div>
+			<div id="m3"></div>
+			<div id="m4"></div>
+			<div id="m0click"></div>
+			<div id="m1click"></div>
+			<div id="m2click"></div>
+			<div id="m3click"></div>
+			<div id="m4click"></div>
+		</div>
+	</div>
+	
+	<div id="popupContact">  
+        <a id="popupContactClose"></a>  
+        <div id="popupIcon"></div>
+		<div id="popupHeader">Make a wish ...</div>
+        <div id="popupContactArea">  
+			<input type="text" name="wish" size="25" value="" /><br />
+			<br />
+	        <a id="okButton"></a><a id="cancelButton"></a><br />
+			<script>
+				$("#okButton").click(function(){
+					var wish = $('input').val();
+					$wish = wish;
+					$.post("wish.php", { wish: $wish }, function(){disablePopup();});
+		    	})
+			</script>
+        </div>  
+    </div>  
+
+    <div id="backgroundPopup"></div>
+
+	<script>
+		var m0 = $('#m0');
+		var m1 = $('#m1');
+		var m2 = $('#m2');
+		var m3 = $('#m3');
+		var m4 = $('#m4');
+		var m0click = $('#m0click');
+		var m1click = $('#m1click');
+		var m2click = $('#m2click');
+		var m3click = $('#m3click');
+		var m4click = $('#m4click');
+		var rf = $('#glowBack');
+		var ff = $('#glowFront');		
+		
+		function rearglow(){
+			rf.delay(2400).animate({opacity:.55},600, 'linear',function(){rearfade();});
+		}
+		
+		function rearfade(){
+			rf.delay(200).animate({opacity:0},800, 'linear',function(){});
+		}
+
+		function shower(id, dly, alph, alphTime, streakTime, frontGlowVis) {
+			var m = id;
+			m.delay(dly).animate({
+				opacity:alph
+			  }, alphTime, 'linear', function() {
+				if(frontGlowVis === true) {
+					ff.delay(150).animate({ 
+						opacity:.85
+					}, 600, 'linear', function(){
+						ff.delay(200).animate({opacity:0},1800, 'linear');
+					});
+				}
+			    m.animate({
+			    	right: '+=2000',
+			    	top: '+=1000'
+			    }, streakTime, 'linear', function() {
+			    		_reset(id,dly,alph);
+			    	});
+			    });
+		}
+
+		function _reset(id,dly,alph){
+			$(id).css({'top': '0', 'right': '0', 'opacity':'0'});
+
+			if($(id).attr('id') == 'm0click') {
+				$(id).css({'cursor': 'pointer'});
+			}
+			
+			if($(id).attr('id') == 'm1click') {
+				$(id).css({'cursor': 'pointer'});
+			}
+			
+			if($(id).attr('id') == 'm2click') {
+				$(id).css({'cursor': 'pointer'});
+			}
+			
+			if($(id).attr('id') == 'm3click') {
+				$(id).css({'cursor': 'pointer'});
+			}
+			
+			if($(id).attr('id') == 'm4click') {
+				$(id).css({'cursor': 'pointer'});
+				beginShower(0);
+			}
+		}
+
+		function beginShower(alphTime) {
+			shower(m0,0,1,alphTime,3500,false);
+			shower(m1,700,1,alphTime,2000,false);
+			shower(m2,1200,1,alphTime,2800,false);
+			shower(m3,3450,1,alphTime,2500,true);
+			shower(m4,3750,.75,alphTime,2000,false);
+			rearglow();
+			shower(m0click,0,1,alphTime,3500,false);
+			shower(m1click,700,1,alphTime,2000,false);
+			shower(m2click,1200,1,alphTime,2800,false);
+			shower(m3click,3450,1,alphTime,2500,false);
+			shower(m4click,3750,.75,alphTime,2000,false);
+		}
+
+		beginShower(5);
+		
+	</script>
+</body>
+</html>

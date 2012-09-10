@@ -1,0 +1,297 @@
+
+html {
+	overflow: hidden;
+}
+
+body { 
+	background-color: #000000; 
+	font-family: Arial;
+}
+
+input {
+	width: 285px;
+}
+
+#wrapper, #container {
+    height: 800px;
+    width: 1280px;
+}
+
+#wrapper {
+    bottom: 50%;
+    right: 50%;
+    position: absolute;
+}
+
+#container {
+	top: 50%;
+	left: 50%;
+	padding: 0px;
+	position: relative;
+}
+
+#sky {
+	top: 0px;
+    padding: 0px;
+    position: absolute;
+	z-index: -1;
+}
+
+#stars {
+	top: 0px;
+    padding: 0px;
+    position: absolute;
+	z-index: 0;
+}
+
+#glowBack {
+	opacity:0;
+	bottom: 0px;
+    padding: 0px;
+    position: absolute;
+	z-index: 99;
+}
+
+#horizon {
+	bottom: 0px;
+    padding: 0px;
+    position: absolute;
+	z-index: 100;
+}
+
+#glowFront {
+	opacity:0;
+	bottom: 0px;
+    padding: 0px;
+    position: absolute;
+	z-index: 101;
+}
+
+#mask {
+	bottom: -4px;
+    padding: 0px;
+    position: absolute;
+	z-index: 1000;
+}
+
+#m0 {
+    position:absolute;
+    background:url('../img/meteor0.gif') no-repeat;
+    background-size:327px 203px;
+    width: 436px;     
+    height: 271px;
+	z-index: 3;
+    margin-top: -300px;
+    margin-right: -400px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+#m1 {
+    opacity:0;
+    position:absolute;
+    background:url('../img/meteor1.gif') no-repeat;
+    width: 436px;     
+    height: 271px;
+    z-index: 4;
+    margin-top: -180px;
+    margin-right: -800px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+#m2 {
+    opacity:0;
+    position:absolute;
+    background:url('../img/meteor2.gif') no-repeat;
+    background-size:545px 339px;
+    width: 545px;     
+    height: 338px;
+    z-index: 5;
+    margin-top: -110px;
+    margin-right: -970px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+#m3 {
+    opacity:0;
+    position:absolute;
+    background:url('../img/meteor3.gif') no-repeat;
+    background-size:554px 344px;
+    width: 554px;     
+    height: 344px;
+    z-index: 999;
+    margin-top: 150px;
+    margin-right: -670px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+#m4 {
+    position:absolute;
+    background:url('../img/meteor4.gif') no-repeat;
+    background-size:218px 136px;
+    width: 436px;     
+    height: 271px;
+    opacity:.75;
+    z-index: 7;
+    margin-top: -300px;
+    margin-right: -100px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+#m0click {
+    position:absolute;
+    width: 256px;     
+    height: 128px;
+	z-index: 1001;
+    margin-top: -250px;
+    margin-right: -230px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+#m1click {
+    position:absolute;
+    width: 310px;     
+    height: 256px;
+    z-index: 1002;
+    margin-top: -180px;
+    margin-right: -675px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+#m2click {
+    position:absolute;
+    width: 310px;     
+    height: 256px;
+    z-index: 1003;
+    margin-top: -50px;
+    margin-right: -725px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+#m3click {
+    position:absolute;
+    width: 352px;     
+    height: 256px;
+    z-index: 1004;
+    margin-top: 275px;
+    margin-right: -475px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+#m4click {
+    position:absolute;
+    width: 192px;     
+    height: 128px;
+    z-index: 1005;
+    margin-top: -300px;
+    margin-right: 150px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+#backgroundPopup {
+	display:none;
+	position:fixed;
+	_position:absolute; /* hack for internet explorer 6*/
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background:#000000;
+	z-index:2000;
+}
+
+#popupContact {
+	display:none;
+	position:fixed;
+	_position:absolute; /* hack for internet explorer 6*/
+	height:135px;
+	width:300px;
+	background:#C0C0C0;
+	border:2px solid #DDDDDD;
+	z-index:2001;
+	padding:12px;
+	font-size:13px;
+}
+
+#popupHeader {
+	position:absolute;
+	left: 122px;
+	top: 40px;
+	text-align:left;
+	color:#000000;
+}
+
+#popupIcon {
+	left:16px;
+	top:4px;
+	position:absolute;
+	display:block;
+	width: 78px;
+	height: 78px;
+	background: url(../img/meteor-icon.gif) no-repeat top;
+}
+
+#popupContactArea {
+	left:16px;
+	top:85px;
+	position:absolute;
+	display:block;
+}
+
+#popupContactClose {
+	font-size:14px;
+	line-height:14px;
+	right:4px;
+	top:4px;
+	position:absolute;
+	color:#6fa5fd;
+	font-weight:700;
+	display:block;
+	width: 16px;
+	height: 14px;
+	background: url(../img/x.gif) no-repeat top;
+}
+
+a{
+	cursor: pointer;
+	text-decoration:none;
+}
+
+#popupContactClose:active {
+	background: url(../img/x-pressed.gif) no-repeat top;
+}
+
+#okButton {
+	display:block;
+	left: 3px;
+	position:absolute;
+	width: 74px;
+	height: 23px;
+	background: url(../img/ok.gif) no-repeat top;
+}
+
+#okButton:active {
+	background: url(../img/ok-pressed.gif) no-repeat top;
+}
+
+#cancelButton {
+	display:block;
+	left: 87px;
+	position:absolute;
+	width: 74px;
+	height: 23px;
+	background: url(../img/cancel.gif) no-repeat top;
+}
+
+#cancelButton:active {
+	background: url(../img/cancel-pressed.gif) no-repeat top;
+}
